@@ -5,8 +5,7 @@ var morgan = require('morgan');
 
 var server = restify.createServer();
 
-var giphyBot = new builder.BotConnectorBot();
-
+var giphyBot = new builder.BotConnectorBot({ appId: process.env.APP_ID, appSecret: process.env.APP_SECRET });
 giphyBot.add('/', function (session) {
     var matched = /\/giphy\s(.+)/.exec(session.message.text);
     if (matched && matched.length > 0) {
@@ -27,7 +26,7 @@ giphyBot.add('/', function (session) {
 });
 
 server.use(morgan("combined"));
-server.use(giphyBot.verifyBotFramework({ appId: process.env.APP_ID, appSecret: process.env.APP_SECRET }));
+server.use(giphyBot.verifyBotFramework());
 server.post('/v1/messages', giphyBot.listen());
 
 server.listen(process.env.PORT || 3000, function () {
