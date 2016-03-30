@@ -1,6 +1,7 @@
 var restify = require('restify');
 var builder = require('botbuilder');
 var request = require('request');
+var morgan = require('morgan');
 
 var server = restify.createServer();
 
@@ -24,6 +25,7 @@ giphyBot.add('/', function (session) {
     }
 });
 
+server.use(morgan("combined"));
 server.use(giphyBot.verifyBotFramework());
 server.post('/v1/messages', giphyBot.listen());
 
