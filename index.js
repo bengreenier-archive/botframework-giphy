@@ -6,6 +6,9 @@ var morgan = require('morgan');
 var server = restify.createServer();
 
 var giphyBot = new builder.BotConnectorBot({ appId: process.env.APP_ID, appSecret: process.env.APP_SECRET });
+
+console.log("made bot with "+process.env.APP_ID+" "+process.env.APP_SECRET);
+
 giphyBot.add('/', function (session) {
     var matched = /\/giphy\s(.+)/.exec(session.message.text);
     if (matched && matched.length > 0) {
