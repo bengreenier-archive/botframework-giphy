@@ -27,7 +27,11 @@ giphyBot.add('/', function (session) {
 
 server.use(morgan("combined"));
 server.use(giphyBot.verifyBotFramework());
-server.post('/v1/messages', giphyBot.listen());
+server.post('/v1/messages', giphyBot.listen);
+
+giphyBot.on("error", function (err) {
+    console.error(err);
+});
 
 server.listen(process.env.PORT || 3000, function () {
     console.log('%s listening to %s', server.name, server.url); 
