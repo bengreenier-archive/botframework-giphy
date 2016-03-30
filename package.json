@@ -1,0 +1,28 @@
+{
+  "name": "botframework-giphy",
+  "version": "0.1.0",
+  "description": "giphy support for botframework",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bengreenier/botframework-giphy.git"
+  },
+  "keywords": [
+    "giphy",
+    "botframework"
+  ],
+  "author": "Ben Greenier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bengreenier/botframework-giphy/issues"
+  },
+  "homepage": "https://github.com/bengreenier/botframework-giphy#readme",
+  "dependencies": {
+    "botbuilder": "^0.6.0",
+    "request": "^2.69.0",
+    "restify": "^4.0.4"
+  }
+}
